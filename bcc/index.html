@@ -8,14 +8,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </head>
     <style>
-      *, ul, li, a, a:link, a:hover, a:visited, a:active {
+      *, html ul, li, a, a:link, a:hover, a:visited, a:active {
         margin: 0;
         padding: 0;
-        /*-webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        -o-user-select: none;
-        user-select: none;*/
         list-style-type: none;
         text-decoration: none;
         color: black;
@@ -23,6 +18,10 @@
 
       body {
         background-image: url('res/brushed.png');
+      }
+
+      .clear {
+        clear: both;
       }
 
       #wrapper {
@@ -39,13 +38,14 @@
         margin-right: 0px;
         margin-left: 0px;
       }
+      /*COMMON END*/
 
+      /*NAVIGATION START*/
       #wrapper nav {
         background-color: grey;
         border: none;
         border-radius: 0;
         margin-bottom: 0px;
-
       }
 
       #wrapper nav.navbar-brand,
@@ -86,40 +86,9 @@
       #wrapper .navbar-nav li #link-contacts:hover {
         border-top-color: #00FFFF;
       }
+      /*TEMPLATES END*/
 
-      #wrapper #top-menu {
-        height:50px;
-        background-color: white;
-        overflow: hidden;
-      }
-
-      #wrapper #top-menu #logo-container {
-        height: 99%;
-      }
-
-      #wrapper #top-menu #menu-control{
-        height: 99.9%;
-      }
-
-      #wrapper #top-menu #menu-control li {
-        text-align: center;
-        height: 100%;
-        padding: 0;
-      }
-      #wrapper #top-menu #menu-control li a {
-        display: inline-block;
-        width: 99%;
-        line-height: 50px;
-      }
-      #wrapper #top-menu #menu-control li a:hover {
-        background-color: #E9E9E9;
-        cursor: pointer;
-      }
-
-      #wrapper #top-menu #menu-control li a:active {
-        background-color: #E9E9E9;
-      }
-
+        /*MAIN INFO START*/
       #wrapper section#main-info {
         background-color: #80B3FF;
         padding-top: 100px;
@@ -150,9 +119,11 @@
       #wrapper section#main-info #main-text p {
         font-size: 1.2em;
       }
+      /*MAIN INFO END*/
 
+      /*TEMPLATES START*/
       #wrapper section#templates {
-        height: 100vh;
+        //height: 100vh;
         background-color: #F7EAC8;
       }
 
@@ -160,10 +131,111 @@
         text-align: center;
       }
 
-      #wrapper #footer {
-        height: 300px;
-        background-color: #D7D1CA;
+      #wrapper section#templates ul {
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 30px;
       }
+
+      #wrapper section#templates ul li {
+        float: left;
+        display: inline-block;
+        width: 290px;
+        height: 175px;
+        border: 1px solid black;
+      }
+
+      #wrapper section#templates ul li img {
+        display: inline-block;
+      }
+
+      #wrapper section#templates ul li span {
+        display: inline-block;
+      }
+      /*TEMPLATES END*/
+
+      /*FOOTER START*/
+      #wrapper #footer {
+        background-color: #333333;
+        padding: 75px 20% 50px 20%;
+        overflow: hidden;
+        color: #868686;
+      }
+      #wrapper #footer * {
+        color: #868686;
+      }
+
+      #wrapper #footer>.pull-left {
+        width: 50%;
+        height: 300px;
+        text-align: center;
+      }
+
+      #wrapper #footer>.pull-right {
+        width: 50%;
+        height: 300px;
+      }
+
+      #wrapper #footer #site-map {
+        text-align: left;
+        display: inline-block;
+      }
+
+      #wrapper #footer #site-map a{
+        color: #868686;
+      }
+
+      #wrapper #footer #feedback {
+        text-align: middle;
+      }
+
+      #wrapper #footer .pull-left>span {
+        display: block;
+      }
+
+      #wrapper #footer #feedback>span{
+        font-size: 1.2em;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      #wrapper #footer #feedback #feedback-title {
+        display: block;
+        margin: 0 auto;
+        line-height: 30px;
+        padding: 2px 5px 2px 5px;
+        width: 300px;
+        margin-bottom: 10px;
+      }
+
+      #wrapper #footer #feedback #feedback-info {
+        margin: 0 auto;
+        display: block;
+        resize: none;
+        margin-bottom: 10px;
+        width: 300px;
+      }
+
+      #wrapper #footer #feedback #feedback-submit {
+        margin: 0 auto;
+        display: block;
+        font-size: 1.2em;
+        background-color: #333333;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid black;
+      }
+
+      #wrapper #footer #feedback #feedback-submit:hover {
+        background-color: #868686;
+        color: white;
+      }
+
+      /*#wrapper #footer #feedback fieldset {
+        border: 2px solid #868686;
+        padding: 15px;
+      }*/
+      /*FOOTER END*/
 
       @media (max-width: 750px) {
         #wrapper .navbar-nav li {
@@ -190,6 +262,7 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#" id="link-home">Home</a></li>
+              <li><a href="#" id="link-create">Create</a></li>
               <li><a href="#" id="link-templates">Templates</a></li>
               <li><a href="#" id="link-about">About</a></li>
               <li><a href="#" id="link-contacts">Contacts</a></li>
@@ -223,9 +296,27 @@
       </section>
       <section id="templates" class="row no-margin-row">
         <h2>Choose from our templates</h2>
-
       </section>
       <footer id="footer">
+          <div class="pull-left">
+            <span>Карта на сайта:</span>
+            <ul id="site-map">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Create</a></li>
+              <li><a href="#">Templates</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contacts</a></li>
+            </ul>
+          </div>
+          <div class="pull-right" id="feedback">
+            <span>Свържете се с нас</span>
+            <form id="fomr-connect" action="#">
+              <input id="feedback-title" type="text" placeholder="Заглавие">
+              <textarea id="feedback-info" name="feedback-info" placeholder="Текст" rows="8" cols="40"></textarea>
+              <input id="feedback-submit" class="pull-left" type="submit" value="Изпрати">
+            </form>
+          </div>
+
       </footer>
     </div>
 
@@ -237,6 +328,36 @@
               scrollTop: $("#templates").offset().top
           }, 1000);
         });
+
+        var templatesList = $('<ul />');
+
+
+        var templateImg = $('<img />')
+          .addClass('cardTemplateImg'),
+          templateName = $('<span />')
+          .addClass('cardTemplateName');
+
+        var cardTemplate = $('<li />');
+        cardTemplate.addClass('cardTemplate');
+        cardTemplate.append(templateImg);
+        cardTemplate.append(templateName);
+
+        var cardsPerRow = 3;
+
+        for (var i = 1; i <= 27; i++) {
+          var newTemplate = cardTemplate.clone();
+          newTemplate.children('img')
+            .attr('src', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQwpMiINcpo9IuU-33QTYw_0ZMp2e2Dt5hBVxlat-XnVi0Mk1nhTQ')
+            .attr('display', 'block');
+          newTemplate.children().last().html('<strong>Sample Name</strong>').css('display', 'block');
+          if (i % cardsPerRow > 0) {
+            newTemplate.css('margin-right', '10px');
+          }
+          newTemplate.css('margin-top', '30px');
+          templatesList.append(newTemplate);
+        }
+        templatesList.append($('<div />').addClass('clear'));
+        $('#templates').append(templatesList);;
       }(jQuery));
     </script>
   </body>
