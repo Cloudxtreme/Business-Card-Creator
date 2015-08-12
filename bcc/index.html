@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Business Card Creator</title>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </head>
+    <style>
+      *, ul, li, a, a:link, a:hover, a:visited, a:active {
+        margin: 0;
+        padding: 0;
+        /*-webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;*/
+        list-style-type: none;
+        text-decoration: none;
+        color: black;
+      }
+
+      body {
+        background-image: url('res/brushed.png');
+      }
+
+      #wrapper {
+        padding-left: 0;
+        padding-right: 0;
+        background-color: white;
+        min-height: 700px;
+        min-height: 100vh;
+        width: 85%;
+        margin: 0 auto;
+      }
+
+      #wrapper .no-margin-row{
+        margin-right: 0px;
+        margin-left: 0px;
+      }
+
+      #wrapper nav {
+        background-color: grey;
+        border: none;
+        border-radius: 0;
+        margin-bottom: 0px;
+
+      }
+
+      #wrapper nav.navbar-brand,
+      #wrapper nav.navbar-nav li a {
+          line-height: 60px;
+          height: 60px;
+          padding-top: 0;
+      }
+
+      #wrapper .navbar-nav li {
+        width: 140px;
+        text-align: center;
+      }
+
+      #wrapper .navbar-nav li a{
+        width: 100%;
+        height: 100%;
+        color: white;
+        border-top: 5px solid grey;
+      }
+
+      #wrapper .navbar-nav li a:hover {
+        background-color: #80B3FF;
+      }
+
+      #wrapper .navbar-nav li #link-home:hover {
+        border-top-color: #00FFFF;
+      }
+
+      #wrapper .navbar-nav li #link-templates:hover {
+        border-top-color: #F7EAC8;
+      }
+
+      #wrapper .navbar-nav li #link-about:hover {
+        border-top-color: #FFCBDB;
+      }
+
+      #wrapper .navbar-nav li #link-contacts:hover {
+        border-top-color: #00FFFF;
+      }
+
+      #wrapper #top-menu {
+        height:50px;
+        background-color: white;
+        overflow: hidden;
+      }
+
+      #wrapper #top-menu #logo-container {
+        height: 99%;
+      }
+
+      #wrapper #top-menu #menu-control{
+        height: 99.9%;
+      }
+
+      #wrapper #top-menu #menu-control li {
+        text-align: center;
+        height: 100%;
+        padding: 0;
+      }
+      #wrapper #top-menu #menu-control li a {
+        display: inline-block;
+        width: 99%;
+        line-height: 50px;
+      }
+      #wrapper #top-menu #menu-control li a:hover {
+        background-color: #E9E9E9;
+        cursor: pointer;
+      }
+
+      #wrapper #top-menu #menu-control li a:active {
+        background-color: #E9E9E9;
+      }
+
+      #wrapper section#main-info {
+        background-color: #80B3FF;
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+
+      #wrapper section#main-info #main-text {
+        margin: 0 auto;
+        padding-left: 50px;
+        height: 100%;
+      }
+
+      #wrapper section#main-info #link-container{
+        height: 100%;
+        text-align: center;
+      }
+
+      #wrapper section#main-info #link-container #start-using-anchor img {
+        height: 100%;
+        max-height: 150px;
+        max-width: 150px;
+      }
+
+      #wrapper section#main-info #main-text h1 {
+        font-size: 2em;
+      }
+
+      #wrapper section#main-info #main-text p {
+        font-size: 1.2em;
+      }
+
+      #wrapper section#templates {
+        height: 100vh;
+        background-color: #F7EAC8;
+      }
+
+      #wrapper section#templates h2 {
+        text-align: center;
+      }
+
+      #wrapper #footer {
+        height: 300px;
+        background-color: #D7D1CA;
+      }
+
+      @media (max-width: 750px) {
+        #wrapper .navbar-nav li {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
+  <body>
+    <div id="wrapper" class="container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+              <img alt="Brand" src="http://www.emmasofia.org/wp-content/uploads/2015/04/Logo_retina.png?6ab8a0" style="height:100%;">
+            </a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#" id="link-home">Home</a></li>
+              <li><a href="#" id="link-templates">Templates</a></li>
+              <li><a href="#" id="link-about">About</a></li>
+              <li><a href="#" id="link-contacts">Contacts</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </nav>
+
+      <!--<div id="top-menu" class="row">
+          <img class="col-md-3" id="logo-container" src="http://puu.sh/jyKip/15b8951871.png" alt="Logo">
+          <ul id="menu-control" class="row col-md-6 pull-right">
+            <li class="col-md-3"><a href="#">Home</a></li>
+            <li class="col-md-3"><a href="#" id="link-templates">Templates</a></li>
+            <li class="col-md-3"><a href="">About</a></li>
+            <li class="col-md-3"><a href="">Contacts</a></li>
+          </ul>
+      </div>-->
+
+      <section id="main-info">
+        <div class="row no-margin-row">
+          <div id="main-text" class="col-md-8">
+            <h1>Create your own business cards with our creator!</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus pariatur numquam molestiae cupiditate ratione, voluptates debitis voluptas hic, sequi itaque veritatis voluptatibus, eius sed velit vitae ducimus exercitationem dolor. Illo?</p>
+          </div>
+          <div id="link-container" class="col-md-4">
+            <a href="#" id="start-using-anchor">
+              <img src="res/arrow-left.png" alt="Започни">
+            </a>
+          </div>
+        </div>
+      </section>
+      <section id="templates" class="row no-margin-row">
+        <h2>Choose from our templates</h2>
+
+      </section>
+      <footer id="footer">
+      </footer>
+    </div>
+
+    <script type="text/javascript">
+      (function function_name($) {
+        $('#link-templates').on('click', function(event) {
+          event.preventDefault();
+          $('html, body').animate({
+              scrollTop: $("#templates").offset().top
+          }, 1000);
+        });
+      }(jQuery));
+    </script>
+  </body>
+</html>
