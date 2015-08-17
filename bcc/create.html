@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Business Card Creator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/create.css">
+  </head>
+  <body>
+    <div id="wrapper" class="container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+              <img alt="Brand" src="http://www.emmasofia.org/wp-content/uploads/2015/04/Logo_retina.png?6ab8a0" style="height:100%;">
+            </a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#" id="link-home">Home</a></li>
+              <li><a href="#" id="link-create">Create</a></li>
+              <li><a href="#" id="link-templates">Templates</a></li>
+              <li><a href="#" id="link-about">About</a></li>
+              <li><a href="#" id="link-contacts">Contacts</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </nav>
+
+      <section>
+        <div class="row">
+          <div class="col-md-2">colors</div>
+          <!--<svg id="card-template" class="col-md-8">
+          </svg>-->
+          <div id="dojo-object" class="col-md-8"></div>
+          <ul id="panel-right" class="col-md-2">
+            <li id="pen-control">Pen</li>
+            <li id="square-control">Square</li>
+            <li id="circle-control">Circle</li>
+            <li id="triangle-control">Triangle</li>
+            <li id="image-control">image</li>
+          </ul>
+        </div>
+        <div id="button">ASd</div>
+      </section>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script>
+    <script src="scripts/create.js"></script>
+    <script src="scripts/drawControlsModule.js"></script>
+    <script src="scripts/template-events.js"></script>
+
+  </body>
+</html>

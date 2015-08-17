@@ -1,0 +1,52 @@
+#wrapper nav {
+  background-color: grey;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 0px;
+}
+
+#wrapper nav.navbar-brand,
+#wrapper nav.navbar-nav li a {
+    line-height: 60px;
+    height: 60px;
+    padding-top: 0;
+}
+
+#wrapper .navbar-nav li {
+  width: 140px;
+  text-align: center;
+}
+
+#wrapper .navbar-nav li a{
+  width: 100%;
+  height: 100%;
+  color: white;
+  border-top: 5px solid grey;
+}
+
+#wrapper .navbar-nav li a:hover {
+  background-color: #80B3FF;
+}
+
+#wrapper .navbar-nav li #link-home:hover {
+  border-top-color: #00FFFF;
+}
+
+#wrapper .navbar-nav li #link-templates:hover {
+  border-top-color: #F7EAC8;
+}
+
+#wrapper .navbar-nav li #link-about:hover {
+  border-top-color: #FFCBDB;
+}
+
+#wrapper .navbar-nav li #link-contacts:hover {
+  border-top-color: #00FFFF;
+}
+
+@media (max-width: 750px) {
+  #wrapper .navbar-nav li {
+    width: 100%;
+    text-align: center;
+  }
+}

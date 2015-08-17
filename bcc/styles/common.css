@@ -1,0 +1,30 @@
+*, html ul, li, a, a:link, a:hover, a:visited, a:active {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  background-image: url('../res/brushed.png');
+}
+
+.clear {
+  clear: both;
+}
+
+#wrapper {
+  padding-left: 0;
+  padding-right: 0;
+  background-color: white;
+  min-height: 700px;
+  min-height: 100vh;
+  width: 85%;
+  margin: 0 auto;
+}
+
+#wrapper .no-margin-row{
+  margin-right: 0px;
+  margin-left: 0px;
+}
