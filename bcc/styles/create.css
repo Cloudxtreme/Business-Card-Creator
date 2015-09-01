@@ -1,3 +1,16 @@
-svg {
-  background-image: url('../res/card-background-pattern.png');
+section #dojo-object {
+    padding: 0;
+    width: 400px;
+    height: 400px;
+    background-image: url('../res/card-background-pattern.png');
+}
+
+section #dojo-object svg {
+    margin-left: 50%;
+    margin-top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+section #add-image {
+    display: none;
 }

@@ -5,10 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/nav.css">
-    <link rel="stylesheet" href="styles/common.css">
-    <link rel="stylesheet" href="styles/footer.css">
-    <link rel="stylesheet" href="styles/create.css">
+    <link rel="stylesheet" href="../styles/nav.css">
+    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/create.css">
+    <style>
+        .selected {
+            border: 1px solid red;
+            padding: 5px;
+        }
+        #control-function div {
+            display: none;
+        }
+
+        #scale-input-y {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            transform: rotate(270deg);
+        }
+    </style>
   </head>
   <body>
     <div id="wrapper" class="container">
@@ -40,16 +55,31 @@
       <section>
         <div class="row">
           <div class="col-md-2">colors</div>
-          <!--<svg id="card-template" class="col-md-8">
-          </svg>-->
           <div id="dojo-object" class="col-md-8"></div>
-          <ul id="panel-right" class="col-md-2">
-            <li id="pen-control">Pen</li>
-            <li id="square-control">Square</li>
-            <li id="circle-control">Circle</li>
-            <li id="triangle-control">Triangle</li>
-            <li id="image-control">image</li>
+          <ul id="draw-panel" class="col-md-1">
+            <li id="image-control">Картинка</li>
+            <li id="background-control">Фон</li>
           </ul>
+          <div id="control-function" class="col-md-1">
+              <div id="add-image">
+                  <label for="img-width">Широчина: </label>
+                  <input type="text" id="img-width" name="img-width">
+                  <label for="img-height">Височина: </label>
+                  <input type="text" id="img-height"  name="img-height">
+                  <label for="img-src">Url: </label>
+                  <input type="text" id="img-src"  name="img-src">
+                  <button type="button" id="add-image-button" name="button">Добави</button>
+              </div>
+              <div id="add-background">
+                  <label for="background"></label>
+                  <input type="text" id="add-background-input" name="background" placeholder="Фон">
+                  <button id="add-background-button">Добави</button>
+              </div>
+              <div id="scale">
+                  <input id="scale-input-y" type="range" max="210" min="0">
+                  <input id="scale-input-x" type="range" min="0" max="170" oninput="console.log(this.value)">
+              </div>
+          </div>
         </div>
         <div id="button">ASd</div>
       </section>
@@ -59,9 +89,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script>
+    <script src="scripts/template-events.js"></script>
     <script src="scripts/create.js"></script>
     <script src="scripts/drawControlsModule.js"></script>
-    <script src="scripts/template-events.js"></script>
+    <script src="scripts/drawModule.js"></script>
 
   </body>
 </html>

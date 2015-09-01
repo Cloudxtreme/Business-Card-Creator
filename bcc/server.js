@@ -1,11 +1,11 @@
 var express = require('express'),
-    dot = require('dot'),
-    fs = require('fs'),
-    createView = fs.readFileSync(__dirname + '/create.html');
+    config = require('./app/config.js');
+require('ejs');
+    //createView = fs.readFileSync(__dirname + '/create.html');
 var mongo = require('mongodb'),
     monk = require('monk'),
-    db = monk('localhost:27017/card-templates'),
-    templates = db.get('templatesCollection');
+    db = monk(config.db.link),
+    templatesCollection = db.get('templatesCollection');
 
 var env = process.env.NODE_ENV || "development";
 var app = express();
@@ -15,15 +15,8 @@ we're adding that object to every HTTP request (ie: "req")
 our app makes. Note: this is probably sub-optimal for performance
 but, again, we're going quick-n-dirty here.*/
 
-/*load different views and compile with dot*/
-function compileTemplate(view, model) {
-  var viewString = fs.readFileSync(__dirname + '/' + view),
-      template = dot.compile(viewString),
-      final = template(model);
-
-  return final;
-}
-
+app.set('view-engine', 'ejs');
+require('./app/router.js')(app, db);
 /*TESTING PURPOSE ONLY*/
 /*
 documentsCount(templates);
@@ -52,47 +45,7 @@ function documentsCount(collection, query) {
   That's why the first time count returns 4, and the second 5.*/
 /*}*/
 
- app.use(function (req, res, next) {
-     res.renderWithData = function (view, model, data) {
-         res.render(view, model, function (err, viewString) {
-             data.view = viewString;
-             res.json(data);
-         });
-     };
-     next();
- });
 
- /*Adding the database to the request prototype,
-  so it can be used everywhere. Not actually used.*/
-app.use(function(req, res, next){
-    req.db = db;
-    next();
-});
-
-app.get('/templates/', function(req, res) {
-  templates.find({}, {}, function(err, docs){
-    if (err) {
-      throw err;
-    }
-
-    res.send(docs);
-  });
-});
-
-app.get('/create', function (req, res) {
-  templates.findOne({_id: req.query.id}, function (err, doc) {
-    if (err) {
-      throw err;
-    }
-
-    var template = dot.compile(createView),
-        html = template(doc);
-
-    res.send(html);
-  });
-});
-
-app.use('/', express.static(__dirname));
 
 
 
@@ -102,6 +55,7 @@ app.use(function (err, req, res, next) {
   res.status(500).send("Something broke!");
 });
 
-app.listen(8080);
+app.use(express.static(__dirname));
+app.listen(80);
 
-console.log("Server listens to port: 8080 ...");
+console.log("Server listens to port: 80 ...");

@@ -3,7 +3,7 @@ function DrawControlsModuleInit () {
     var SquareControl;
 
     SquareControl = (function () {
-      var SquareControl =function (x, y, width, height, fill, stroke) {
+      var SquareControl = function (x, y, width, height, fill, stroke) {
         this.x = x;
         this. y = y;
         this.width = width;
